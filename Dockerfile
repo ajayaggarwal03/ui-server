@@ -20,8 +20,8 @@ ARG TEMPORAL_CLOUD_UI="false"
 
 WORKDIR /home/ui-server
 
-RUN addgroup -g 1007819955 temporal
-RUN adduser -u 1007819955 -G temporal -D temporal
+RUN addgroup temporal
+RUN adduser -G temporal -D temporal
 
 RUN mkdir ./config
 
