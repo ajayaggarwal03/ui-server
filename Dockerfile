@@ -1,4 +1,4 @@
-ARG BASE_SERVER_IMAGE=openjdk:17.0.1-jdk-alpine
+ARG BASE_SERVER_IMAGE=eclipse-temurin:17-jdk-alpine
 ARG BASE_BUILDER_IMAGE=temporalio/base-builder:1.14.5
 
 FROM ${BASE_BUILDER_IMAGE} AS server-builder
