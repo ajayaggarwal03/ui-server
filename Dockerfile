@@ -1,4 +1,4 @@
-ARG BASE_SERVER_IMAGE=temporalio/base-server:1.15.5
+ARG BASE_SERVER_IMAGE=openjdk:17.0.1-jdk-slim
 ARG BASE_BUILDER_IMAGE=temporalio/base-builder:1.14.5
 
 FROM ${BASE_BUILDER_IMAGE} AS server-builder
@@ -20,9 +20,9 @@ ARG TEMPORAL_CLOUD_UI="false"
 
 WORKDIR /home/ui-server
 
-RUN addgroup temporal
-RUN adduser -G temporal -D temporal
-
+RUN addgroup -g 1007815555 temporal
+RUN adduser -u 1007815555 -G temporal -D temporal
+USER temporal
 RUN mkdir config
 
 COPY --from=server-builder /home/server-builder/ui-server ./
