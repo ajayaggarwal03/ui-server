@@ -22,7 +22,7 @@ WORKDIR /home/ui-server
 
 RUN addgroup --gid 1007810000 temporal
 RUN adduser --uid 1007810000 --ingroup temporal temporal
-USER temporal
+
 RUN mkdir ./config
 
 COPY --from=server-builder /home/server-builder/ui-server ./
@@ -30,7 +30,7 @@ COPY docker/start-ui-server.sh ./start-ui-server.sh
 COPY docker/config-template.yaml ./config-template.yaml
 
 RUN chown temporal:temporal /home/ui-server -R
-RUN chown -R temporal:temporal ./config
+
 
 EXPOSE 8080
 ENTRYPOINT ["./start-ui-server.sh"]
