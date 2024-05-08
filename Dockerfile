@@ -24,7 +24,7 @@ RUN addgroup temporal
 RUN adduser -G temporal -D temporal
 
 RUN mkdir ./config
-
+RUN chown temporal:temporal ./config -R
 COPY --from=server-builder /home/server-builder/ui-server ./
 COPY docker/start-ui-server.sh ./start-ui-server.sh
 COPY docker/config-template.yaml ./config-template.yaml
