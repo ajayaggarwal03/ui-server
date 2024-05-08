@@ -24,12 +24,13 @@ RUN addgroup temporal
 RUN adduser -G temporal -D temporal
 
 RUN mkdir ./config
-RUN chown temporal:temporal ./config -R
+
 COPY --from=server-builder /home/server-builder/ui-server ./
 COPY docker/start-ui-server.sh ./start-ui-server.sh
 COPY docker/config-template.yaml ./config-template.yaml
 
 RUN chown temporal:temporal /home/ui-server -R
+RUN chown temporal:temporal ./config -R
 
 EXPOSE 8080
 ENTRYPOINT ["./start-ui-server.sh"]
