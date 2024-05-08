@@ -1,4 +1,4 @@
-name: Publish Docker image
+name: Publish Docker image ajay
 
 on:
   push:
@@ -31,10 +31,10 @@ jobs:
         uses: docker/metadata-action@v4
         if: github.event_name == 'push'
         with:
-          images: temporaliotest/ui
+          images: ajayaggarwal03/temporalio
           tags: |
             type=sha,format=short,event=branch
-            latest
+            v1
 
       - name: Push Commit image to DockerHub
         uses: docker/build-push-action@v4
